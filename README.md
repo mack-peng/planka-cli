@@ -37,7 +37,13 @@ npm install && npm run build && npm link
 
 ### For LLM Agents
 
-If you're an LLM Agent helping set up planka-cli, follow these steps:
+> **IMPORTANT: Use `curl` to fetch the full guide.** The README below is a summary. The full agent-facing installation guide includes every command, common failures, and workflow patterns.
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/mack-peng/planka-cli/main/docs/guide/installation.md
+```
+
+Quick reference:
 
 #### Step 1: Install from npm
 
