@@ -1,5 +1,5 @@
 {
-  "name": "planka-cli",
+  "name": "@orangemust/planka-cli",
   "version": "0.1.0",
   "description": "CLI tool for PLANKA self-hosted Kanban boards — manage projects, boards, lists, cards, labels, users, and more",
   "license": "MIT",
