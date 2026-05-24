@@ -1,7 +1,24 @@
 {
   "name": "planka-cli",
   "version": "0.1.0",
-  "description": "CLI tool for PLANKA - Real-Time Collaborative Kanban Board",
+  "description": "CLI tool for PLANKA self-hosted Kanban boards — manage projects, boards, lists, cards, labels, users, and more",
+  "license": "MIT",
+  "author": "mack-peng",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mack-peng/planka-cli.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mack-peng/planka-cli/issues"
+  },
+  "homepage": "https://github.com/mack-peng/planka-cli#readme",
+  "keywords": [
+    "planka",
+    "kanban",
+    "cli",
+    "project-management",
+    "boards"
+  ],
   "bin": {
     "planka-cli": "./bin/planka.js"
   },
