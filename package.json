@@ -1,0 +1,25 @@
+{
+  "name": "planka-cli",
+  "version": "0.1.0",
+  "description": "CLI tool for PLANKA - Real-Time Collaborative Kanban Board",
+  "bin": {
+    "planka-cli": "./bin/planka.js"
+  },
+  "main": "dist/index.js",
+  "files": [
+    "bin/",
+    "dist/"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "commander": "^12.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.4.0"
+  }
+}
