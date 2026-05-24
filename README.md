@@ -16,9 +16,7 @@ https://raw.githubusercontent.com/mack-peng/planka-cli/main/README.md
 **Alternative — do it yourself:**
 
 ```bash
-git clone git@github.com:mack-peng/planka-cli.git
-cd planka-cli
-npm install && npm run build && npm link
+npm install -g @orangemust/planka-cli
 ```
 
 Then log in to your PLANKA server:
@@ -29,11 +27,25 @@ planka-cli login --url https://your-planka.example.com --email you@example.com -
 
 > **Note**: PLANKA is self-hosted. You must specify your server URL during login. The auth token is saved to `~/.planka/config.json`.
 
+**Development install (from source):**
+
+```bash
+git clone git@github.com:mack-peng/planka-cli.git
+cd planka-cli
+npm install && npm run build && npm link
+```
+
 ### For LLM Agents
 
 If you're an LLM Agent helping set up planka-cli, follow these steps:
 
-#### Step 1: Install
+#### Step 1: Install from npm
+
+```bash
+npm install -g @orangemust/planka-cli
+```
+
+If npm install fails (e.g. offline environment), fall back to source:
 
 ```bash
 git clone git@github.com:mack-peng/planka-cli.git /tmp/planka-cli
@@ -99,7 +111,6 @@ planka-cli cards duplicate <id> -n "Copy"
 
 # Users & Members
 planka-cli users list
-planka-cli users get <id>
 planka-cli card-memberships add <cardId> <userId>
 planka-cli card-memberships remove <cardId> <userId>
 planka-cli board-memberships create <boardId> <userId> -r editor
