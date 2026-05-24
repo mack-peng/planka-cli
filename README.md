@@ -22,6 +22,10 @@ npm install -g @orangemust/planka-cli
 Then log in to your PLANKA server:
 
 ```bash
+# Interactive mode (recommended — prompts for each value, password is hidden)
+planka-cli login
+
+# Or pass everything on the command line
 planka-cli login --url https://your-planka.example.com --email you@example.com --password yourpassword
 ```
 
@@ -66,6 +70,10 @@ Ask the user for their PLANKA server URL, email, and password.
 #### Step 3: Login and verify
 
 ```bash
+# Interactive mode — let the user type it themself
+planka-cli login
+
+# Or pass credentials on the command line
 planka-cli login --url <SERVER_URL> --email <EMAIL> --password <PASSWORD>
 planka-cli projects list
 ```
@@ -85,7 +93,8 @@ Tell the user:
 planka-cli --base-url https://planka.example.com --api-key YOUR_KEY <command>
 
 # First-time setup
-planka-cli login --url https://planka.example.com --email you@example.com --password pass
+planka-cli login                                 # interactive (recommended)
+planka-cli login --url ... --email ... --password ...  # non-interactive
 planka-cli config info
 
 # Projects

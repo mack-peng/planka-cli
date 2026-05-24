@@ -62,8 +62,15 @@ If a `baseUrl` and `bearerToken` (or `apiKey`) already exist, you can skip login
 
 ## Step 3: Authenticate
 
-PLANKA is self-hosted. You must know the server URL. The CLI has one auth command:
+PLANKA is self-hosted. You must know the server URL. The CLI has two ways to log in:
 
+**Interactive mode (let the user type credentials themself):**
+```bash
+planka-cli login
+```
+This prompts for URL, email, and password (password input is hidden). Best choice when the user is at a terminal.
+
+**Non-interactive mode (you supply the values):**
 ```bash
 planka-cli login --url https://planka.example.com --email you@example.com --password yourpassword
 ```
@@ -354,7 +361,7 @@ For agents that trust copy-paste:
 npm install -g @orangemust/planka-cli && planka-cli login --url https://planka.example.com --email you@example.com --password yourpass && planka-cli projects list
 ```
 
-Replace the URL, email, and password. Humans can paste this and you handle the rest.
+Replace the URL, email, and password. Humans can paste this and you handle the rest. Or just run `planka-cli login` to enter credentials interactively.
 
 ---
 

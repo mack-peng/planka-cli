@@ -2,6 +2,7 @@ import { Command } from 'commander';
 import { ApiClient } from '../api/client';
 import { MiscAPI } from '../api/misc';
 import { formatOutput } from '../utils/output';
+import { promptText, promptHidden } from '../utils/prompt';
 import { BackgroundImagesAPI } from '../api/background-images';
 import { AccessTokensAPI } from '../api/access-tokens';
 
@@ -44,21 +45,32 @@ export function registerMiscCommands(program: Command): void {
     });
 
   const login = program.command('login')
-    .description('Login with email/username and password (saves auth token)')
+    .description('Login with email/username and password (saves auth token). Run without options for interactive mode.')
     .option('-u, --url <url>', 'PLANKA server base URL')
-    .requiredOption('--email <emailOrUsername>', 'Email or username')
-    .requiredOption('--password <password>', 'Password')
+    .option('--email <emailOrUsername>', 'Email or username')
+    .option('--password <password>', 'Password')
     .action(async (options, command) => {
       try {
         const opts = command.optsWithGlobals();
-        const baseUrl = options.url || opts.baseUrl;
+
+        let baseUrl = options.url || opts.baseUrl;
         if (!baseUrl) {
-          console.error('Error: URL is required. Use --url or run "planka config init" first.');
-          process.exit(1);
+          baseUrl = await promptText('Server URL: ');
         }
+
+        let email = options.email;
+        if (!email) {
+          email = await promptText('Email/Username: ');
+        }
+
+        let password = options.password;
+        if (!password) {
+          password = await promptHidden('Password: ');
+        }
+
         const loginClient = new ApiClient({ baseUrl });
         const tokenApi = new AccessTokensAPI(loginClient);
-        const loginResult = await tokenApi.login(options.email, options.password);
+        const loginResult = await tokenApi.login(email, password);
         const token = loginResult.item;
 
         const authClient = new ApiClient({ baseUrl, bearerToken: token });
